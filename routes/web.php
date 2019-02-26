@@ -11,9 +11,33 @@
 |
 */
 use \Illuminate\Http\Request;
-use \App\User;
 
 Route::get('/', function (Request $request) {
-    dd(User::all()->toArray());
-    return view('welcome');
+    $tasks = \App\Models\Task::all();
+    return view('tasks', [
+        'tasks' => $tasks
+    ]);
 });
+//get это то что видит пользователь (оставлем всё сюда для пользователя)
+Route::get ('/task', function (Request $request){
+
+});
+//post это для добавления данных, защищенный протокол
+Route::post('/task', function (Request $request) {
+    $task = new \App\Models\Task;
+    $task->name = $request->name;
+    $task->save();
+
+    return redirect('/');
+});
+
+/**
+ * Удалить задачу
+ */
+// delete для удаленния данных с сервера
+Route::delete('/task/{task}', function (Task $task) {
+    //
+});
+/*
+ *  Этот коммент на несколько строк , позволяет ещё дропать весь код что ниже
+ */
