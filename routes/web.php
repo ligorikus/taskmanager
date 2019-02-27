@@ -35,8 +35,12 @@ Route::post('/task', function (Request $request) {
  * Удалить задачу
  */
 // delete для удаленния данных с сервера
-Route::delete('/task/{task}', function (Task $task) {
-    //
+
+Route::delete('/task/{task}', function (\App\Models\Task $task) {
+
+    $task->delete();
+
+    return redirect('/');
 });
 /*
  *  Этот коммент на несколько строк , позволяет ещё дропать весь код что ниже
