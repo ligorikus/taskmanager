@@ -7,7 +7,7 @@ use App;
 
 class PostController extends Controller
 {
-    public function request()
+    public function request(Request $request)
     {
         $task = new \App\Models\Task;
         $task->name = $request->name;
@@ -15,7 +15,8 @@ class PostController extends Controller
 
         return redirect('/');
     }
-    public function delete()
+
+    public function delete($id)
     {
 
         $task->delete();

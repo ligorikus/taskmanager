@@ -16,12 +16,14 @@
 
             <!-- Кнопка Удалить -->
             <td>
-                <form action="{{ url('task/'.$task->id) }}" method="POST">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
+                <form action="{{action('PostController@delete',$task->id)}}"  method="POST">
+                    <input name="_method" type="hidden" value="DELETE">
+                {{ csrf_field() }}
+                    {{ method_field('delete') }}
 
                     <button type="submit" class="btn btn-danger">
                         <i class="fa fa-trash"></i> Delete
+                    <input type="hidden" value="id" />
                     </button>
                 </form>
             </td>
@@ -29,10 +31,12 @@
         <br>
     @endforeach
 </table>
-<form action="{{url('task')}}" method="post">
+<form action="{{ action('PostController@request') }}">
     {{csrf_field()}}
+
     <input type="text" name="name">
     <button type="submit">submit</button>
+
 </form>
 @yield('content')
 </body>

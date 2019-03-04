@@ -12,8 +12,9 @@
 */
 use \Illuminate\Http\Request;
 
-Route::get('/post','PostController@index');
-Route::get('/post','PostController@index');
+Route::get('request','PostController@request');
+
+Route::delete('del','PostController@delete');
 
 Route::get('/', function (Request $request) {
     $tasks = \App\Models\Task::all();
@@ -21,11 +22,6 @@ Route::get('/', function (Request $request) {
         'tasks' => $tasks
     ]);
 });
-//get это то что видит пользователь (оставлем всё сюда для пользователя)
-Route::get ('/task', function (Request $request){
-
-});
-
 
 /* стереть тут
 
