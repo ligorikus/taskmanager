@@ -12,6 +12,9 @@
 */
 use \Illuminate\Http\Request;
 
+Route::get('/post','PostController@index');
+Route::get('/post','PostController@index');
+
 Route::get('/', function (Request $request) {
     $tasks = \App\Models\Task::all();
     return view('tasks', [
@@ -22,6 +25,10 @@ Route::get('/', function (Request $request) {
 Route::get ('/task', function (Request $request){
 
 });
+
+
+/* стереть тут
+
 //post это для добавления данных, защищенный протокол
 Route::post('/task', function (Request $request) {
     $task = new \App\Models\Task;
@@ -36,12 +43,21 @@ Route::post('/task', function (Request $request) {
  */
 // delete для удаленния данных с сервера
 
+
+
+
+/*
+
 Route::delete('/task/{task}', function (\App\Models\Task $task) {
 
     $task->delete();
 
     return redirect('/');
 });
+
 /*
  *  Этот коммент на несколько строк , позволяет ещё дропать весь код что ниже
  */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
