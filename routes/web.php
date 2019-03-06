@@ -14,7 +14,8 @@ use \Illuminate\Http\Request;
 
 Route::get('request','PostController@request');
 
-Route::delete('del','PostController@delete');
+Route::delete('/','PostController@destroy');
+
 
 Route::get('/', function (Request $request) {
     $tasks = \App\Models\Task::all();

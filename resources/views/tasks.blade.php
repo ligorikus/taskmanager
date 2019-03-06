@@ -16,7 +16,7 @@
 
             <!-- Кнопка Удалить -->
             <td>
-                <form action="{{action('PostController@delete',$task->id)}}"  method="POST">
+                <form action="{{action('PostController@destroy')}}"  method="POST">
                     <input name="_method" type="hidden" value="DELETE">
                 {{ csrf_field() }}
                     {{ method_field('delete') }}

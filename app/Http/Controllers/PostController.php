@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App;
 
+
 class PostController extends Controller
 {
     public function request(Request $request)
@@ -16,7 +17,7 @@ class PostController extends Controller
         return redirect('/');
     }
 
-    public function delete($id)
+    public function destroy(App\Models\Task $task)
     {
 
         $task->delete();
