@@ -12,12 +12,14 @@
 */
 use \Illuminate\Http\Request;
 
-Route::get('request','PostController@request');
 
-Route::delete('/','PostController@destroy');
+    Route::get('request', 'PostController@request')->name('reg');
 
+    Route::delete('/{task}', 'PostController@destroy')->name('task.delete');
 
-Route::get('/', function (Request $request) {
+    Route::post('/', 'PostController@check_box');
+
+    Route::get('/', function (Request $request) {
     $tasks = \App\Models\Task::all();
     return view('tasks', [
         'tasks' => $tasks

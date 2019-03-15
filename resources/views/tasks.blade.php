@@ -13,17 +13,29 @@
             <td class="table-text">
                 <div>{{ $task->name }}</div>
             </td>
+            <td class="table-text">
+                <div>{{ $task->is_active }}</div>
+            </td>
+            <!-- Кнопка выполнено , не выполнено -->
+          <td>
+
+              <form action="{{ action('PostController@check_box') }}">
+                <input type="hidden" value="false">
+                  <button type="submit">check</button>
+
+
+              </form>
+
+          </td>
 
             <!-- Кнопка Удалить -->
-            <td>
-                <form action="{{action('PostController@destroy')}}"  method="POST">
-                    <input name="_method" type="hidden" value="DELETE">
-                {{ csrf_field() }}
-                    {{ method_field('delete') }}
+           <td>
+                <form action={{ route('task.delete', [$task]) }} method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
 
                     <button type="submit" class="btn btn-danger">
-                        <i class="fa fa-trash"></i> Delete
-                    <input type="hidden" value="id" />
+                        <i class="fa fa-btn fa-trash"></i>Delete
                     </button>
                 </form>
             </td>
