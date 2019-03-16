@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/sass/app.css') }}" />
 <html lang="en">
 <head>
     <title>Task manager</title>
