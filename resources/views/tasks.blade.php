@@ -6,7 +6,12 @@
 
 </head>
 <body>
-
+<!-- Имя пользователя -->
+    <td class="table-text">
+        <div>
+        username
+        </div>
+    </td>
 <table>
     @foreach($tasks as $task)
         <tr>
