@@ -19,8 +19,8 @@
             <!-- Кнопка выполнено , не выполнено -->
           <td>
 
-              <form action="{{ action('PostController@check_box') }}">
-                <input type="hidden" value="false">
+              <form action={{ route('task.status', [$task->ia_active]) }} method="POST">
+                  {{ csrf_field() }}
                   <button type="submit">check</button>
 
 
@@ -43,7 +43,7 @@
         <br>
     @endforeach
 </table>
-<form action="{{ action('PostController@request') }}">
+<form action={{ route('task.add') }}>
     {{csrf_field()}}
 
     <input type="text" name="name">

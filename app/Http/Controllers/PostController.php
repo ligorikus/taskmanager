@@ -23,14 +23,17 @@ class PostController extends Controller
         return redirect('/');
     }
 
-    public function check_box(App\Models\Task $request)
+    public function check_box(Task $task)
     {
-            $task = $request->id;
-            if ($task->is_active = true) {
-                $task->is_active = false;
+            if ($task->is_active = 1) {
+                $task->is_active = 0;
+                $task->save();
+
             }else{
-                $task->is_active = true;
+                $task = 1;
+
             }
+
 
         return redirect('/');
 

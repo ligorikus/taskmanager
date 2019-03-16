@@ -12,12 +12,15 @@
 */
 use \Illuminate\Http\Request;
 
+    Route::get('profile', function () {
+    // Только аутентифицированные пользователи могут зайти...
+    })->middleware('auth');
 
-    Route::get('request', 'PostController@request')->name('reg');
+    Route::get('request',['middleware' => 'auth', 'uses' => 'PostController@request'])->name('task.add');
 
-    Route::delete('/{task}', 'PostController@destroy')->name('task.delete');
+    Route::delete('/{task}', ['middleware' => 'auth', 'uses' =>'PostController@destroy'])->name('task.delete');
 
-    Route::post('/', 'PostController@check_box');
+    Route::post('/', ['middleware' => 'auth', 'uses' =>'PostController@check_box'])->name('task.status');
 
     Route::get('/', function (Request $request) {
     $tasks = \App\Models\Task::all();
@@ -57,6 +60,22 @@ Route::delete('/task/{task}', function (\App\Models\Task $task) {
 /*
  *  Этот коммент на несколько строк , позволяет ещё дропать весь код что ниже
  */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
