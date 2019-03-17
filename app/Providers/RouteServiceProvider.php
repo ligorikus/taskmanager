@@ -26,7 +26,6 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
        Route::model("task",Task::class);
-       Route::model("user",Users::class);
         parent::boot();
     }
 

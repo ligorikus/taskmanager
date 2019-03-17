@@ -25,7 +25,7 @@
             <!-- Кнопка выполнено , не выполнено -->
           <td>
 
-              <form action={{ route('task.status', [$task->ia_active]) }} method="POST">
+              <form action={{ route('task.status', [$task]) }} method="POST">
                   {{ csrf_field() }}
                   <button type="submit">check</button>
 

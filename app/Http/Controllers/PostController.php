@@ -25,12 +25,16 @@ class PostController extends Controller
 
     public function check_box(Task $task)
     {
-            if ($task = 1) {
+        dd($task->name);
+            if ($task->is_active == true) {
+                dd($task->is_active);
 
-
+            $task->is_active = false;
+            $task->save();
 
             }else{
-                $task = 1;
+                $task->is_active = true;
+                $task->save();
 
             }
 
