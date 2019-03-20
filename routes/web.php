@@ -20,7 +20,7 @@ use \Illuminate\Http\Request;
 
     Route::delete('/{task}', ['middleware' => 'auth', 'uses' =>'PostController@destroy'])->name('task.delete');
 
-    Route::post('/', ['middleware' => 'auth', 'uses' =>'PostController@check_box'])->name('task.status');
+    Route::post('/check/{task}', ['middleware' => 'auth', 'uses' =>'PostController@check_box'])->name('task.status');
 
     Route::get('/', function (Request $request) {
 
