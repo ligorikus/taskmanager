@@ -6,6 +6,7 @@
 
 </head>
 <body>
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <!-- Имя пользователя -->
     <td class="table-text">
         <div>
