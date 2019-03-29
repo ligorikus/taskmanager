@@ -27,7 +27,6 @@ class PostController extends Controller
 
     public function check_box(Task $task)
     {
-        dd(auth()->user()->tasks);
             if ($task->is_active == true) {
 
             $task->is_active = false;
@@ -46,11 +45,13 @@ class PostController extends Controller
 
     public function view_all(Request $request)
     {
-        $request = Task::all();
 
-        return view('tasks', [
+        $request =  auth()->user()->tasks;
+       return view('tasks', [
 
             'tasks' => $request]);
-    }
+
+       }
+
 
 }
