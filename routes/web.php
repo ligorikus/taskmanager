@@ -22,17 +22,8 @@ use \Illuminate\Http\Request;
 
     Route::post('/check/{task}', ['middleware' => 'auth', 'uses' =>'PostController@check_box'])->name('task.status');
 
-    Route::get('/', function (Request $request) {
-
-
-        $tasks = \App\Models\Task::all();
-
-        return view('tasks', [
-
-            'tasks' => $tasks
-    ]);
-});
-
+    Route::get('/',['middleware' => 'auth', 'uses' =>'PostController@view_all']);
+    
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

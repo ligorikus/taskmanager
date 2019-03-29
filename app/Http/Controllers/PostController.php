@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function request(Request $request)
     {
-        $task = new \App\Models\Task;
+        $task = new Task;
         $task->name = $request->name;
         $task->save();
 
@@ -40,6 +40,15 @@ class PostController extends Controller
 
         return redirect('/');
 
+    }
+
+    public function view_all(Request $request)
+    {
+        $request = Task::all();
+
+        return view('tasks', [
+
+            'tasks' => $request]);
     }
 
 }
