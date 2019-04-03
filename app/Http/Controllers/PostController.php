@@ -43,6 +43,8 @@ class PostController extends Controller
 
     }
 
+
+
     public function view_all(Request $request)
     {
 

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Task;
+use App\Models\User;
 use Couchbase\UserSettings;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;

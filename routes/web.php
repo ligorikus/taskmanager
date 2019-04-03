@@ -16,6 +16,9 @@ use \Illuminate\Http\Request;
     // Только аутентифицированные пользователи могут зайти...
     })->middleware('auth');
 
+    Route::get('request',['middleware' => 'auth', 'uses' => 'admin@request'])->name('task.add');
+
+
     Route::get('request',['middleware' => 'auth', 'uses' => 'PostController@request'])->name('task.add');
 
     Route::delete('/{task}', ['middleware' => 'auth', 'uses' =>'PostController@destroy'])->name('task.delete');
