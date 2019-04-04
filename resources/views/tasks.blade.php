@@ -10,7 +10,7 @@
 <!-- Имя пользователя -->
 
         <td class="table-text">
-            <div>username</div>
+            <div>{{auth()->user()->name}}</div>
         </td>
 
 <table>

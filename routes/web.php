@@ -16,7 +16,10 @@ use \Illuminate\Http\Request;
     // Только аутентифицированные пользователи могут зайти...
     })->middleware('auth');
 
-    Route::get('request',['middleware' => 'auth', 'uses' => 'admin@request'])->name('task.add');
+
+
+    Route::get('request/{user}',['middleware' => ['auth', 'admin'], 'uses' => 'admin@request'])->name('admin.right');
+
 
 
     Route::get('request',['middleware' => 'auth', 'uses' => 'PostController@request'])->name('task.add');
@@ -26,6 +29,8 @@ use \Illuminate\Http\Request;
     Route::post('/check/{task}', ['middleware' => 'auth', 'uses' =>'PostController@check_box'])->name('task.status');
 
     Route::get('/',['middleware' => 'auth', 'uses' =>'PostController@view_all']);
+
+
 
     Auth::routes();
 

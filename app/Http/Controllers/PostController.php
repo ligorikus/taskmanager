@@ -10,11 +10,6 @@ class PostController extends Controller
 {
     public function request(Request $request)
     {
-       /* $task = new Task;
-        $task->name = $request->name;
-        $task->save();
-        return redirect('/');
-       */
         auth()->user()->tasks()->create(['name' => $request->name]);
         return redirect('/');
     }
