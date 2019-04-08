@@ -18,7 +18,7 @@ use \Illuminate\Http\Request;
 
 
 
-    Route::get('request/{user}',['middleware' => ['auth', 'admin'], 'uses' => 'admin@request'])->name('admin.right');
+    Route::get('admin/user/',['middleware' => ['auth', 'admin'], 'uses' => 'admin@request'])->name('admin.right');
 
     Route::get('admin/user/{user}',['middleware' => ['auth', 'admin'], 'uses' => 'admin@user'])->name('admin.users');
 
