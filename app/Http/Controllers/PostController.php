@@ -42,7 +42,9 @@ class PostController extends Controller
 
     public function view_all(Request $request)
     {
-
+        if (auth()->user()->admin_status == 1) {
+            return redirect(route('admin.users'));
+        }
         $request =  auth()->user()->tasks;
        return view('tasks', [
 

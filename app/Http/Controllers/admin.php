@@ -15,4 +15,13 @@ class admin extends Controller
 
     }
 
+    public function users(Request $request)
+    {
+
+        return view('users', [
+
+            'users' => $request]);
+
+    }
+
 }

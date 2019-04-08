@@ -20,6 +20,8 @@ use \Illuminate\Http\Request;
 
     Route::get('request/{user}',['middleware' => ['auth', 'admin'], 'uses' => 'admin@request'])->name('admin.right');
 
+    Route::get('admin/user/{user}',['middleware' => ['auth', 'admin'], 'uses' => 'admin@user'])->name('admin.users');
+
 
 
     Route::get('request',['middleware' => 'auth', 'uses' => 'PostController@request'])->name('task.add');
